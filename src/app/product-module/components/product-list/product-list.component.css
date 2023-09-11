@@ -1,0 +1,84 @@
+/* PRODUCT LIST CONTAINER */
+
+.t1-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.centralize-container {
+    height: auto;
+    width: 1600px;
+}
+
+.container-top {
+    width: 1600px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.t1-title {
+    width: auto;
+    height: auto;
+}
+
+.title-product {
+    font-size: 32px;
+    border-bottom: 3px solid #D3BAF3;
+    color: #3e115f;
+    letter-spacing: 2px;
+}
+
+.add-item-div {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    background-color: #D3BAF3;
+    color: #3e115f;
+    border-radius: 50px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-item-div:hover {
+    background-color: #c9a8f5;
+}
+
+.product-table {
+    text-align: center;
+    border-collapse: collapse;
+    border: 2px solid #ffd3e8;
+    letter-spacing: 2px;
+}
+
+.product-table tr {
+    border: 2px solid #ffd3e8;
+}
+
+.product-table thead tr {
+    background: linear-gradient(to right, #ef90be, #f5b8d5, #c9a8f5);
+    color: #fff;
+
+}
+
+.product-table th {
+    height: 60px;
+    font-size: 23px;
+    padding: 10px;
+}
+
+.default {
+    width: 380px;
+    height: 60px;
+}
+
+.small {
+    width: 120px;
+}
+

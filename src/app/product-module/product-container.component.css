@@ -1,0 +1,157 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 97.5%;
+    height: 80px;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(to right, #3e115f, #ab4e68, #ffd3e8) 1;
+    padding: 0 25px;
+}
+
+.title {
+    font-size: 32px;
+    color: #3e115f;
+    letter-spacing: 2px;
+}
+
+.product-total {
+    width: auto;
+}
+
+.total-title {
+    font-size: 25px;
+    color: #3e115f;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.total-value {
+    font-size: 25px;
+    color: #ab4e68;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* CREATE / UPDATE PRODUCT CONTAINER */
+
+.t2-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.t2-centralize {
+    height: auto;
+    width: 700px;
+    background-color: #f2e9fd;
+    border-radius: 15px;
+    padding: 55px;
+}
+
+.add-edit-form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.form-field {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 0;
+    align-items: center;
+}
+
+.form-span {
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #9165d0;
+    font-weight: 600;
+    padding: 0 15px;
+
+}
+
+.form-input {
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: #3e115f;
+    height: 42px;
+    width: 430px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 0;
+}
+
+/* END OF CREATE / UPDATE PRODUCT CONTAINER */
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+/* PRODUCT DETAIL CONTAINER */
+
+.t3-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.t3-centralize {
+    height: auto;
+    width: 900px;
+    background-color: #ffd3e8;
+    border-radius: 15px;
+    padding: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.image-content {
+    width: auto;
+    height: auto;
+}
+
+.image-content img {
+    width: 250px;
+    height: 250px;
+}
+
+.detail-info {
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    width: 500px;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-title {
+    font-size: 30px;
+    color: #ab4e68;
+    letter-spacing: 2px;
+}
+
+.info-value {
+    font-size: 30px;
+    color: #743648;
+    letter-spacing: 2px;
+}
