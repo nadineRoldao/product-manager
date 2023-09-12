@@ -1,19 +1,25 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Product } from "../../models/product.model";
+import { ProductService } from "../../services/product.service";
 
 @Component({
     selector: 'product-list',
     templateUrl: 'product-list.component.html',
     styleUrls: ['product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
-    products: Product[] = [{
-        id: 1,
-        name: 'lapis',
-        price: 2.50,
-        category: 'papelaria',
-        link: 'a'
-    }]
+    products: Product[] = []
+
+    constructor(private productService: ProductService) {
+    }
+
+    ngOnInit(): void {
+        
+        this.productService.getProducts().subscribe((productResponse: Product[]) => {
+            this.products = productResponse
+            this.productService.emitTotalProductsChange(productResponse.length)
+        })
+    }
 
 }

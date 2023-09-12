@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Product } from "../../models/product.model";
+import { ProductService } from "../../services/product.service";
 
 @Component({
     selector: '[product-item]',
@@ -10,4 +11,15 @@ export class ProductItemComponent {
 
     @Input()
     product!: Product
+
+    constructor(private productService: ProductService) {
+    }
+
+    deleteProduct():void {
+        this.productService.deleteProductById(this.product.id).subscribe({
+            complete: () => {
+                window.location.reload()
+            },
+        })
+    }
 }

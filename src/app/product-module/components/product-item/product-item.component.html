@@ -3,7 +3,7 @@
 <td class="default">{{ product.price }}</td>
 <td class="small detail">
     <span class="detail-btn">
-        <a href="https://chat.openai.com/"
+        <a [routerLink]="['/products/detail', product.id]"
             class="detail-btn" style="text-decoration: none;">
             <i class="fa-solid fa-circle-info"></i>
         </a>
@@ -11,7 +11,7 @@
 </td>
 <td class="small edit">
     <span class="edit-btn">
-        <a href="https://chat.openai.com/" class="edit-btn"
+        <a [routerLink]="['/products/form']" [queryParams]="{id: product.id}" class="edit-btn"
             style="text-decoration: none;">
             <i class="fa-solid fa-pen-to-square"></i>
         </a>
@@ -19,7 +19,7 @@
 </td>
 <td class="small delete">
     <span class="delete-btn">
-        <a href="https://chat.openai.com/" class="delete-btn"
+        <a (click)="deleteProduct()" class="delete-btn"
             style="text-decoration: none;">
             <i class="fa-regular fa-trash-can"></i>
         </a>
