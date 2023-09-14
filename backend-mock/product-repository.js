@@ -3,21 +3,30 @@
 let products = [{
     id: 1,
     name: 'Notebook MSI',
-    category: 'eletronic',
+    category: {
+        id: 1,
+        description: 'Eletronic'
+    },
     price: 10000.00,
     link: 'https://mdbootstrap.com/img/Photos/Others/placeholder7.webp'
 },
 {
     id: 2,
     name: 'Lapis',
-    category: 'papelaria',
+    category: {
+        id: 2,
+        description: 'Papelaria'
+    },
     price: 2.50,
     link: 'https://www.pergamopapelaria.com.br/mestre/envio/imagens/39799/Ecolapis_Grafite_Sparkle_FSC_SM%20SPK.jpg'
 },
 {
     id: 3,
     name: 'Jogo do Mario',
-    category: 'games',
+    category: {
+        id: 3,
+        description: 'Games'
+    },
     price: 75.85,
     link: 'https://play-lh.googleusercontent.com/p7rx-TDw8mSXmnN5oreMbOrC6FTumoRsnz8rDxUHL6-7xYtLlzcyj1GS8UKyBx5eJg'
 }]
@@ -36,7 +45,6 @@ function add(product) {
 }
 
 function update(product) {
-
     if (!product.id) {
         throw new Error('product not found.')
     }
@@ -44,6 +52,7 @@ function update(product) {
     remove(product.id)
     products.push(product)
     products.sort((o1, o2) => o1.id - o2.id)
+
 }
 
 function remove(id) {

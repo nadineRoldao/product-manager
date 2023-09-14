@@ -4,6 +4,7 @@ import { ProductService } from "../../services/product.service";
 import { Product } from "../../models/product.model";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { maxLengthCustomValidator } from "../../validators/max-length-custom.validator";
+import { ProductCategory } from "../../models/product-category.model";
 
 @Component({
     selector: 'product-form',
@@ -13,8 +14,13 @@ import { maxLengthCustomValidator } from "../../validators/max-length-custom.val
 export class ProductFormComponent implements OnInit {
 
     productForm!: FormGroup
-    product: Product = {} as Product
     isUpdate = false
+    categories: ProductCategory[] = [
+        { id: 1, description: 'Eletronic'},
+        { id: 2, description: 'Papelaria'},
+        { id: 3, description: 'Games'}
+    ]
+    selectedCategoryId!: number
 
     constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router ) {}
 
@@ -33,11 +39,11 @@ export class ProductFormComponent implements OnInit {
     }
 
     buildForm(product: Product | null): void {
-        let id = 0
-        let name = ''
-        let category = ''
+        let id = null
+        let name = null
+        let category = null
         let price = null
-        let link = ''
+        let link = null
 
         if (!!product) {
             id = product.id
@@ -69,7 +75,7 @@ export class ProductFormComponent implements OnInit {
         return this.productForm.get('priceCtrl')
     }
 
-    get productV2(): Product {
+    get product(): Product {
         return {
             id: this.productForm.get('id')?.value,
             name: this.productForm.get('nameCtrl')?.value,
@@ -79,21 +85,20 @@ export class ProductFormComponent implements OnInit {
         }
     }
 
-    saveProduct():void {
+    onCategoryChange(event: any):void {
+        this.selectedCategoryId = event.target.value
+    }
 
+    saveProduct():void {
         if (this.productForm.valid && !this.isUpdate) {
-            this.productService.createProduct(this.productV2).subscribe({
+            this.productService.createProduct(this.product).subscribe({
                 complete: () => {
-                    console.log('produto criado');
-    
                     this.router.navigate(['/products'])               
                 }
             }) 
         } else {
-            this.productService.updateProduct(this.productV2).subscribe({
+            this.productService.updateProduct(this.product).subscribe({
                 complete: () => {
-                    console.log('produto atualizado');
-    
                     //redirecionando para /products
                     this.router.navigate(['/products'])
                 }

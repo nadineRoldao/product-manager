@@ -52,7 +52,7 @@ app.get('/products', (req, res) => {
     if (!!category) {
         filterObj.category = category
     }
-
+ 
     const filteredProducts = productRepository.filter(filterObj)
 
     res.status(200).json(filteredProducts)
