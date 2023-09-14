@@ -5,30 +5,49 @@
                 {{ isUpdate ? 'ATUALIZAR' : 'CADASTRAR' }} PRODUTO
             </span>
         </div>
-        <form (ngSubmit)="saveProduct()" class="add-edit-form">
+        <form [formGroup]="productForm" (ngSubmit)="saveProduct()" class="add-edit-form" #productFormRef="ngForm">
             <div class="form-field">
-                <span class="form-span">
-                    NOME: 
-                </span>
-                <input [(ngModel)]="product.name" name="name" type="text" class="form-input" id="name-input">
+                <div class="div-message" *ngIf="name?.invalid && productFormRef.submitted">
+                    <span class="message" *ngIf="name?.errors?.['required']" >O campo nome é obrigatório</span>
+                    <span class="message" *ngIf="name?.errors?.['minlength']" >O campo nome precisa ter no mínimo 3 caracteres</span>
+                    <span class="message" *ngIf="name?.errors?.['maxLengthField']" >O campo nome precisa ter no máximo 10 caracteres</span>
+                </div>
+                <div class="field-line">
+                    <span class="form-span">
+                        NOME: 
+                    </span>
+                    <input formControlName="nameCtrl" type="text" class="form-input">
+                </div>
             </div>
             <div class="form-field">
-                <span class="form-span">
-                    CATEGORIA: 
-                </span>
-                <input [(ngModel)]="product.category" name="category" type="text" class="form-input" id="category-input">
+                <div class="div-message" *ngIf="category?.invalid && productFormRef.submitted">
+                    <span class="message">O campo categoria é obrigatório</span>
+                </div>
+                <div class="field-line">
+                    <span class="form-span">
+                        CATEGORIA: 
+                    </span>
+                    <input formControlName="categoryCtrl" type="text" class="form-input">
+                </div>
             </div>
             <div class="form-field">
-                <span class="form-span">
-                    PREÇO: 
-                </span>
-                <input [(ngModel)]="product.price" name="price" type="text" class="form-input" id="price-input">
+                <div class="div-message" *ngIf="price?.invalid && productFormRef.submitted">
+                    <span class="message">O campo preço é obrigatório</span>
+                </div>
+                <div class="field-line">
+                    <span class="form-span">
+                        PREÇO: 
+                    </span>
+                    <input formControlName="priceCtrl" type="text" class="form-input">
+                </div>
             </div>
             <div class="form-field">
-                <span class="form-span">
-                    LINK DA IMAGEM: 
-                </span>
-                <input [(ngModel)]="product.link" name="link" type="text" class="form-input" id="image-input">
+                <div class="field-line">
+                    <span class="form-span">
+                        LINK DA IMAGEM: 
+                    </span>
+                    <input formControlName="linkCtrl" type="text" class="form-input">
+                </div>
             </div>
             <div class="finish-btn-div">
                 <button type="submit" class="finish-btn">

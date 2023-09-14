@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 // criando um array de objetos que serão nossas rotas
 const routes: Routes = [
@@ -15,6 +16,15 @@ const routes: Routes = [
         loadChildren: () => import('./product-module/product.module').then(m => m.ProductModule)
       }
     ]
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent
+  },
+  {
+    // se nao encontrar a rota desejada, redireciona para este componente
+    path: '**',
+    redirectTo: 'not-found'
   }
 ];
 

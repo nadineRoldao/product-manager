@@ -8,7 +8,7 @@ import { Product } from "../models/product.model";
 export class ProductService {
 
     // criando um um sujeito e tornando ele observável
-    totalProductsSubject = new BehaviorSubject(10)
+    totalProductsSubject = new BehaviorSubject(0)
     totalProductsObservable = this.totalProductsSubject.asObservable()
 
     urlBase = 'http://localhost:3030/products'

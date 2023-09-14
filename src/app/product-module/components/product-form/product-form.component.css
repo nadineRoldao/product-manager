@@ -36,10 +36,27 @@
     width: 100%;
     height: auto;
     display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+}
+
+.field-line {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 15px 0;
-    align-items: center;
+}
+
+.div-message {
+    width: auto;
+    height: auto;
+    padding: 5px 5px;
+    margin-left: 240px;
+}
+
+.message {
+    color: red;
+    font-size: 17px;
+    letter-spacing: 2px;
 }
 
 .form-span {
@@ -84,5 +101,9 @@
 .finish-btn:hover {
     background-color: #6c1da4;
 }
+
+
+
+
 
 /* END OF CREATE / UPDATE PRODUCT CONTAINER */

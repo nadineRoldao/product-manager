@@ -8,7 +8,7 @@ import { ProductItemComponent } from "./components/product-item/product-item.com
 import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
 import { ProductService } from "./services/product.service";
 import { ProductFormComponent } from "./components/product-form/product-form.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // criando array com as rotas
 const routes: Routes = [
@@ -39,6 +39,7 @@ const routes: Routes = [
         HttpClientModule,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule.forChild(routes) 
     ],
     providers: [
