@@ -8,20 +8,25 @@ import { ProductItemComponent } from "./components/product-item/product-item.com
 import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
 import { ProductService } from "./services/product.service";
 import { ProductFormComponent } from "./components/product-form/product-form.component";
+import { FormsModule } from "@angular/forms";
 
+// criando array com as rotas
 const routes: Routes = [
     {
         path: '', 
         component: ProductContainerComponent,
+        // rotas filhas
         children: [
             {path: '', component: ProductListComponent},
-            {path: 'detail/:id', component: ProductDetailComponent},
+            //:id indica que essa parte da url é dinâmica
+            {path: 'detail/:id', component: ProductDetailComponent}, 
             {path: 'form', component: ProductFormComponent}
         ]
     }
 ]
 
 @NgModule({
+    // importando nossos componentes
     declarations: [
         ProductContainerComponent,
         ProductListComponent,
@@ -29,10 +34,12 @@ const routes: Routes = [
         ProductDetailComponent,
         ProductFormComponent
     ],
+    // imports de nodulos do angular
     imports: [
         HttpClientModule,
         CommonModule,
-        RouterModule.forChild(routes)
+        FormsModule,
+        RouterModule.forChild(routes) 
     ],
     providers: [
         ProductService

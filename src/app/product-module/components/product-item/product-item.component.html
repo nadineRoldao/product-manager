@@ -11,6 +11,7 @@
 </td>
 <td class="small edit">
     <span class="edit-btn">
+                                            <!-- fazendo property binding de queryParams que torna opcional passar o id na rota -->
         <a [routerLink]="['/products/form']" [queryParams]="{id: product.id}" class="edit-btn"
             style="text-decoration: none;">
             <i class="fa-solid fa-pen-to-square"></i>
@@ -19,6 +20,8 @@
 </td>
 <td class="small delete">
     <span class="delete-btn">
+
+        <!-- event binding, quando clicar no link, chama o método deleteProduct() -->
         <a (click)="deleteProduct()" class="delete-btn"
             style="text-decoration: none;">
             <i class="fa-regular fa-trash-can"></i>

@@ -5,6 +5,8 @@
                 <span class="title-product">LISTA DE PRODUTOS</span>
             </div>
             <div class="add-item-div">
+
+                <!-- property binding -->
                 <a [routerLink]="['/products/form']"
                     class="add-item-div" style="text-decoration: none;">
                     <i class="fa-solid fa-plus"></i>
@@ -25,6 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- diretiva ngFor que percorre a lista de produtos trazendo todos os elementos dela -->
                     <tr *ngFor="let item of products" [product]="item" product-item></tr>
                 </tbody>
             </table>

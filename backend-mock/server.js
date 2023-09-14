@@ -71,15 +71,25 @@ app.post('/products', (req, res) => {
 })
 
 app.put('/products', (req, res) => {
-    const product = req.body
+    
+    try {
+        const product = req.body
 
-    if (!product) {
-        return res.status(400).json({ message: 'Body is required'})
+        if (!product) {
+            return res.status(400).json({ message: 'Body is required'})
+        }
+
+        const productUpdated = productRepository.update(product)
+
+        res.status(200).json(productUpdated)
+
+    } catch (error) {
+        
+        res.status(400).json({ message: error.message })
+
     }
-
-    const productUpdated = productRepository.update(product)
-
-    res.status(200).json(productUpdated)
+    
+    
 })
 ///////////// END API //////////////////////////
 

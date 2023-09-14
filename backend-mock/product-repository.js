@@ -36,6 +36,11 @@ function add(product) {
 }
 
 function update(product) {
+
+    if (!product.id) {
+        throw new Error('product not found.')
+    }
+
     remove(product.id)
     products.push(product)
     products.sort((o1, o2) => o1.id - o2.id)

@@ -2,36 +2,38 @@
     <div class="t2-centralize">
         <div class="t2-title">
             <span class="title-product">
-                ADICIONAR / EDITAR PRODUTO
+                {{ isUpdate ? 'ATUALIZAR' : 'CADASTRAR' }} PRODUTO
             </span>
         </div>
-        <form action="" class="add-edit-form">
+        <form (ngSubmit)="saveProduct()" class="add-edit-form">
             <div class="form-field">
                 <span class="form-span">
                     NOME: 
                 </span>
-                <input type="text" class="form-input" id="name-input">
+                <input [(ngModel)]="product.name" name="name" type="text" class="form-input" id="name-input">
             </div>
             <div class="form-field">
                 <span class="form-span">
                     CATEGORIA: 
                 </span>
-                <input type="text" class="form-input" id="category-input">
+                <input [(ngModel)]="product.category" name="category" type="text" class="form-input" id="category-input">
             </div>
             <div class="form-field">
                 <span class="form-span">
                     PREÇO: 
                 </span>
-                <input type="text" class="form-input" id="price-input">
+                <input [(ngModel)]="product.price" name="price" type="text" class="form-input" id="price-input">
             </div>
             <div class="form-field">
                 <span class="form-span">
                     LINK DA IMAGEM: 
                 </span>
-                <input type="text" class="form-input" id="image-input">
+                <input [(ngModel)]="product.link" name="link" type="text" class="form-input" id="image-input">
             </div>
             <div class="finish-btn-div">
-                <button type="submit" class="finish-btn">CONCLUIR</button>
+                <button type="submit" class="finish-btn">
+                    {{ isUpdate ? 'ATUALIZAR' : 'CADASTRAR' }}
+                </button>
             </div>
         </form>
     </div>
