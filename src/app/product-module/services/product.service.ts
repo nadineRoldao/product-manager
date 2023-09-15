@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Product } from "../models/product.model";
+import { ProductCategory } from "../models/product-category.model";
 
 // nossa classe de serviço, anotamos com @Injectable para indicar que essa classe é injetável
 @Injectable()
@@ -45,5 +46,9 @@ export class ProductService {
 
     createProduct(product:Product): Observable<Product> {
         return this.http.post<Product>(this.urlBase, product)
+    }
+
+    getProductCategories(): Observable<ProductCategory[]> {
+        return this.http.get<ProductCategory[]>(this.urlBase + '/categories/list')
     }
 }

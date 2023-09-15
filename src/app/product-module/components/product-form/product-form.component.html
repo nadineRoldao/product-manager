@@ -25,12 +25,11 @@
                 </div>
                 <div class="field-line">
                     <span class="form-span">
-                        CATEGORIA: 
+                        CATEGORIA:
                     </span>
-                    <!-- <input formControlName="categoryCtrl" type="text" class="form-input"> -->
                     <select formControlName="categoryCtrl" (change)="onCategoryChange($event)">
-                        <option disabled value="">Selecione a categoria</option>
-                        <option *ngFor="let category of categories" [value]="category.id">
+                        <option disabled [ngValue]="null">Selecione a categoria</option>
+                        <option *ngFor="let category of categories" [ngValue]="category">
                             {{ category.description }}
                         </option>
 
@@ -43,7 +42,7 @@
                 </div>
                 <div class="field-line">
                     <span class="form-span">
-                        PREÇO: 
+                        PREÇO:
                     </span>
                     <input formControlName="priceCtrl" type="text" class="form-input">
                 </div>

@@ -29,6 +29,10 @@
                 <tbody>
                     <!-- diretiva ngFor que percorre a lista de produtos trazendo todos os elementos dela -->
                     <tr *ngFor="let item of products" [product]="item" product-item></tr>
+ 
+                    <!-- exemplo usando pipe async do angular no html -->
+                    <!-- <tr *ngFor="let item of productObs | async" [product]="item" product-item></tr> -->
+
                 </tbody>
             </table>
         </div>

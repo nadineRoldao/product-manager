@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "../../models/product.model";
 import { ProductService } from "../../services/product.service";
+import { Observable } from "rxjs";
 
 @Component({
     selector: 'product-list',
@@ -14,6 +15,9 @@ export class ProductListComponent implements OnInit {
     // lista de produtos
     products: Product[] = []
 
+    // exemplo usando pipe async do angular no html 
+    // productObs: Observable<Product[]> = this.productService.getProducts()
+    
     // construtor que recebe a productService
     constructor(private productService: ProductService) {
     }

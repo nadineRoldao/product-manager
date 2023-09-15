@@ -9,6 +9,7 @@ import { ProductDetailComponent } from "./components/product-detail/product-deta
 import { ProductService } from "./services/product.service";
 import { ProductFormComponent } from "./components/product-form/product-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ProductCategoryResolver } from "./resolvers/product-category.resolve";
 
 // criando array com as rotas
 const routes: Routes = [
@@ -20,7 +21,13 @@ const routes: Routes = [
             {path: '', component: ProductListComponent},
             //:id indica que essa parte da url é dinâmica
             {path: 'detail/:id', component: ProductDetailComponent}, 
-            {path: 'form', component: ProductFormComponent}
+            {
+                path: 'form', 
+                component: ProductFormComponent,
+                resolve: {
+                    categories: ProductCategoryResolver
+                }
+            }
         ]
     }
 ]

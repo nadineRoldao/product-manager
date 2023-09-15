@@ -5,6 +5,7 @@ import { Product } from "../../models/product.model";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { maxLengthCustomValidator } from "../../validators/max-length-custom.validator";
 import { ProductCategory } from "../../models/product-category.model";
+import { Observable, of, switchMap } from "rxjs";
 
 @Component({
     selector: 'product-form',
@@ -15,27 +16,36 @@ export class ProductFormComponent implements OnInit {
 
     productForm!: FormGroup
     isUpdate = false
-    categories: ProductCategory[] = [
-        { id: 1, description: 'Eletronic'},
-        { id: 2, description: 'Papelaria'},
-        { id: 3, description: 'Games'}
-    ]
+    categories: ProductCategory[] = []
     selectedCategoryId!: number
 
-    constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router ) {}
+    constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router ) {
+        route.data.subscribe({
+            next: (data: any) => {
+                this.categories = data.categories
+            } 
+        })
+    }
 
     ngOnInit(): void {
-
+        this.isUpdate = false
         this.buildForm(null)
 
-        this.route.queryParams.subscribe((queryParameters: any) => {
-            this.isUpdate = !!queryParameters.id
-            if (!!this.isUpdate) {
-                this.productService.getProductById(queryParameters.id).subscribe((product: Product) => {
-                    this.buildForm(product)
-                })
-            }
+        this.route.queryParamMap
+        .pipe(switchMap((queryParameters: any) => !!queryParameters.id ? this.productService.getProductById(queryParameters.id) : of()))
+        .subscribe((product: Product) => {
+            this.isUpdate = true
+            this.buildForm(product)
         })
+
+        // this.route.queryParams.subscribe((queryParameters: any) => {
+        //     this.isUpdate = !!queryParameters.id
+        //     if (!!this.isUpdate) {
+        //         this.productService.getProductById(queryParameters.id).subscribe((product: Product) => {
+        //             this.buildForm(product)
+        //         })
+        //     }
+        // })
     }
 
     buildForm(product: Product | null): void {
@@ -48,7 +58,9 @@ export class ProductFormComponent implements OnInit {
         if (!!product) {
             id = product.id
             name = product.name
-            category = product.category
+            category = this.categories.find((item) => {
+                return item.id === product.category.id
+            })
             price = product.price
             link = product.link
         }

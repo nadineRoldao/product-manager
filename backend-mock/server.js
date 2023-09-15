@@ -89,7 +89,17 @@ app.put('/products', (req, res) => {
 
     }
     
-    
+})
+
+
+app.get('/products/categories/list', (req, res) => {
+    res.status(200).json([
+        { id: 1, description: 'Gaming'},
+        { id: 2, description: 'Eletronic'},
+        { id: 3, description: 'Office'},
+        { id: 4, description: 'Home'},
+        { id: 5, description: 'Food'}
+      ])
 })
 ///////////// END API //////////////////////////
 
