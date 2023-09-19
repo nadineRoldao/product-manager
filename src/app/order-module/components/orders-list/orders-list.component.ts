@@ -13,9 +13,8 @@ export class OrdersListComponent {
         {
             id: 1,
             clientId: 1,
-            createdAt: 'ontem',
+            date: 'ontem',
             status: "CONFIRMED"
         }
     
-
 }

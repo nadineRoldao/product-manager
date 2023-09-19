@@ -2,6 +2,6 @@
 export interface Order {
     id: number,
     clientId: number,
-    createdAt: string,
+    date: string,
     status: 'CONFIRMED' | 'CANCELLED' | 'FINISHED'
 } 
