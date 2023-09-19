@@ -14,6 +14,11 @@ const routes: Routes = [
         path: 'products', //rota filha
         // redirecionando para a product-module
         loadChildren: () => import('./product-module/product.module').then(m => m.ProductModule)
+      },
+      {
+        path: 'orders', //rota filha
+        // redirecionando para a product-module
+        loadChildren: () => import('./order-module/order.module').then(m => m.OrderModule)
       }
     ]
   },

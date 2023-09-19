@@ -1,0 +1,39 @@
+<div class="t1-container">
+    <div class="centralize-container">
+        <div class="container-top">
+            <div class="t1-title">
+                <span class="title-product">LISTA DE PEDIDOS</span>
+            </div>
+            <div class="add-item-div">
+                <a class="add-item-div" style="text-decoration: none;">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="product-table-list">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th class="default">ID CLIENTE</th>
+                        <th class="default">DATA CRIAÇÃO</th>
+                        <th class="default">STATUS</th>
+                        <th class="small"></th>
+                        <th class="small"></th>
+                        <th class="small"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="default">{{ order.clientId }}</td>
+                        <td class="default">{{ order.createdAt }}</td>
+                        <td class="default">{{ order.status }}</td>
+                        <td class="small">aa</td>
+                        <td class="small">aa</td>
+                        <td class="small">aa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
