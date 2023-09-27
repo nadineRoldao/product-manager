@@ -18,20 +18,13 @@
                         <th class="default">ID CLIENTE</th>
                         <th class="default">DATA CRIAÇÃO</th>
                         <th class="default">STATUS</th>
-                        <th class="small"></th>
+                        <th class="small">  </th>
                         <th class="small"></th>
                         <th class="small"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="default">{{ order.clientId }}</td>
-                        <td class="default">{{ order.date }}</td>
-                        <td class="default">{{ order.status }}</td>
-                        <td class="small">aa</td>
-                        <td class="small">aa</td>
-                        <td class="small">aa</td>
-                    </tr>
+                    <tr *ngFor="let item of orders" [order]="item" order-item></tr>
                 </tbody>
             </table>
         </div>

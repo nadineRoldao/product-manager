@@ -102,8 +102,25 @@
     background-color: #6c1da4;
 }
 
+.custom-select {
+    width: auto;
+    height: auto;
+    margin-right: 260px;
+}
 
-
-
+select {
+    appearance: none;
+    border: none;
+    background-color: #c0a1eb;
+    padding: 0 15px;
+    width: 465px;
+    height: 42px;
+    font-size: 23px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    color: #f2e9fd;
+    outline: none;
+}
 
 /* END OF CREATE / UPDATE PRODUCT CONTAINER */

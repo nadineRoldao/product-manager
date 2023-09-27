@@ -19,7 +19,23 @@ app.use(function(req, res, next) {
     next();
 })
 
+const wordsBlockList = ['maconha', 'cocaina', 'lanca perfume']
+
 ///////////// INIT API //////////////////////////
+
+app.post('/products/validate', (req, res) => {
+    const product = req.body
+
+    if (!product) {
+        return res.status(200).json({isValid: false, message: 'produto deve ser informado'})
+    }
+
+    if (wordsBlockList.some(item => product.name.toLowerCase().includes(item))) {
+        return res.status(200).json({isValid: false, message: 'o produto contem uma palavra proibida'})
+    }
+
+    return res.status(200).json({isValid: true, message: 'produto é válido'})
+})
 
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id

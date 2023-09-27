@@ -12,7 +12,7 @@ export class ProductService {
     totalProductsSubject = new BehaviorSubject(0)
     totalProductsObservable = this.totalProductsSubject.asObservable()
 
-    urlBase = 'http://localhost:3030/products'
+    urlBase = 'http://localhost:8080/products'
 
     // criando um construtor que recebe HttpClient
     constructor(private http: HttpClient) {}

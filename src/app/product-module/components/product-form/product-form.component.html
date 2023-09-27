@@ -27,13 +27,15 @@
                     <span class="form-span">
                         CATEGORIA:
                     </span>
-                    <select formControlName="categoryCtrl" (change)="onCategoryChange($event)">
-                        <option disabled [ngValue]="null">Selecione a categoria</option>
-                        <option *ngFor="let category of categories" [ngValue]="category">
-                            {{ category.description }}
-                        </option>
-
-                    </select>
+                    <div class="custom-select" style="width:200px;" >
+                        <select formControlName="categoryCtrl" (change)="onCategoryChange($event)">
+                            <option disabled [ngValue]="null">Selecione a categoria</option>
+                            <option *ngFor="let category of categories" [ngValue]="category">
+                                {{ category.description }}
+                            </option>
+    
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="form-field">

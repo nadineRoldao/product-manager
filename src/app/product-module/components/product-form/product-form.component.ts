@@ -32,7 +32,7 @@ export class ProductFormComponent implements OnInit {
         this.buildForm(null)
 
         this.route.queryParamMap
-        .pipe(switchMap((queryParameters: any) => !!queryParameters.id ? this.productService.getProductById(queryParameters.id) : of()))
+        .pipe(switchMap((queryParameters: any) => !!queryParameters.params.id ? this.productService.getProductById(queryParameters.params.id) : of()))
         .subscribe((product: Product) => {
             this.isUpdate = true
             this.buildForm(product)

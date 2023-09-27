@@ -1,0 +1,51 @@
+td {
+    height: 60px;
+    font-size: 23px;
+    padding: 10px;
+}
+
+.default {
+    width: 380px;
+    height: 60px;
+}
+
+.small {
+    width: 120px;
+}
+
+.detail-btn {
+    font-size: 32px;
+    color: #ab4e68;  
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.detail-btn:hover {
+    color: #743648;
+}
+
+.edit-btn {
+    font-size: 32px;
+    color: #b689f3;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: #9165d0;
+}
+
+.delete-btn {
+    font-size: 32px;
+    color: red;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    color: rgb(162, 15, 15);
+}
+
+/* END OF PRODUCT LIST CONTAINER */
+
+/* ----------------------------------------------------------------------------------------------------- */
