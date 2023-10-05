@@ -26,7 +26,7 @@ export class ProductService {
 
     // método que recupera todos os elementos da lista de produtos
     getProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.urlBase)
+        return this.http.get<Product[]>(this.urlBase + '/all')
     }
 
     // deletando um produto a partir do id que terá um retorno Observable de qualquer tipo 

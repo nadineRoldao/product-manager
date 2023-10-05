@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { OrderService } from "./services/order.service";
 
 @Component({
     selector: 'order-container',
@@ -8,4 +9,15 @@ import { Component } from "@angular/core";
 
 export class OrderContainerComponent {
     
+        totalOrders = 0
+
+        constructor(orderService: OrderService) {
+
+            orderService.totalOrdersObservable.subscribe({
+                next: (total: number) => {
+                    this.totalOrders = total
+                } 
+            })
+        }
+
 }

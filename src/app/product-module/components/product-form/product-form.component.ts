@@ -37,6 +37,7 @@ export class ProductFormComponent implements OnInit {
             this.isUpdate = true
             this.buildForm(product)
         })
+        
 
         // this.route.queryParams.subscribe((queryParameters: any) => {
         //     this.isUpdate = !!queryParameters.id

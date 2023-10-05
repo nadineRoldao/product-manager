@@ -3,24 +3,15 @@
 <td class="default">{{ order.status }}</td>
 <td class="small detail">
     <span class="detail-btn">
-        <a class="detail-btn" style="text-decoration: none;">
+        <a [routerLink]="['/orders/detail', order.id]" 
+            class="detail-btn" style="text-decoration: none;">
             <i class="fa-solid fa-circle-info"></i>
         </a>
     </span>
 </td>
-<td class="small edit">
-    <span class="edit-btn">
-        <a class="edit-btn"
-            style="text-decoration: none;">
-            <i class="fa-solid fa-pen-to-square"></i>
-        </a>
-    </span>
+<td class="small finish">
+    <button class="finish-order" (click)="finishOrder()" [disabled]="order.status != 'CREATED'">FINISH</button>
 </td>
-<td class="small delete">
-    <span class="delete-btn">
-        <a class="delete-btn"
-            style="text-decoration: none;">
-            <i class="fa-regular fa-trash-can"></i>
-        </a>
-    </span>
+<td class="small cancel">
+    <button class="cancel-order" (click)="cancelOrder()" [disabled]="order.status != 'CREATED'">CANCEL</button>
 </td>

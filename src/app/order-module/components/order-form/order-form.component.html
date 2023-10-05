@@ -1,0 +1,24 @@
+<div class="t2-container">
+    <div class="t2-centralize">
+        <div class="t2-title">
+            <span class="title-product">
+               CADASTRAR PEDIDO
+            </span>
+        </div>
+        <form (ngSubmit)="saveOrder()" class="add-edit-form">
+            <div class="form-field">
+                <div class="field-line">
+                    <span class="form-span">
+                        ID CLIENTE: 
+                    </span>
+                    <input [(ngModel)]="order.clientId" name="clientId" type="text" class="form-input">
+                </div>
+            </div>
+            <div class="finish-btn-div">
+                <button type="submit" class="finish-btn">
+                    CADASTRAR
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

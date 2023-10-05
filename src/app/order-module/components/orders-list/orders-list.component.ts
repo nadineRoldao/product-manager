@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Order } from "../../models/order.model";
 import { OrderItemComponent } from "../order-item/order-item.component";
+import { OrderService } from "../../services/order.service";
 
 @Component({
     selector: 'orders-list',
@@ -10,14 +11,16 @@ import { OrderItemComponent } from "../order-item/order-item.component";
 
 export class OrdersListComponent implements OnInit{
 
-    orders: Order [] = [{
-        id: 36,
-        clientId: 5,
-        date: "17/08/2023",
-        status: "CONFIRMED"
-    }]
+    orders: Order [] = []
+    
+    constructor(private orderService: OrderService){
+
+    }
     
     ngOnInit(): void {
-
+        this.orderService.getOrders().subscribe((orderResponse: Order[]) => {
+            this.orders = orderResponse
+            this.orderService.emitTotalOrdersChange(orderResponse.length)
+        })
     }
 }
